@@ -53,6 +53,7 @@ class CharacterCreation:
             elif gender == "female":
                 print("Congratulations, your new pet is female!")
                 main_menu()
+        return gender
 
 
 character = CharacterCreation()
