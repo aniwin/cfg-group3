@@ -141,5 +141,5 @@ def rock_paper_scissors():
     else:
         print("Choose 1, 2, or 3!")
         rock_paper_scissors()
-
-game_menu()
+if __name__ == "__main__":
+    game_menu()

@@ -26,9 +26,11 @@ def character_menu():
             if gender_choice == "m":
                 gender = "male"
                 print("Congratulations, your new pet is male!")
+                main_menu()
             elif gender_choice == "f":
                 gender = "female"
                 print("Congratulations, your new pet is female!")
+                main_menu()
             else:
                 print("Sorry that gender isn't currently available, please select from the available options.")
     elif gender_choose_or_random == "random":
@@ -40,5 +42,5 @@ def character_menu():
         elif gender == "female":
             print("Congratulations, your new pet is female!")
             main_menu()
-
-character_menu()
+if __name__ == "__main__":
+    character_menu()

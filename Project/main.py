@@ -3,4 +3,6 @@ from character_menu import *
 from main_menu import *
 from game_menu import *
 
-opening_menu()
+
+if __name__ == "__main__":
+    opening_menu()

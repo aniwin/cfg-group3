@@ -39,5 +39,5 @@ def opening_menu():
     print(input('please enter any key to proceed:'))
     character_menu()
 
-
-opening_menu()
+if __name__ == "__main__":
+    opening_menu()

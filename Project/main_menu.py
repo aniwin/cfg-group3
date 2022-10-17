@@ -28,7 +28,7 @@ def main_menu():
 
         print('This will redirect to the game menu')
         time.sleep(3)
-        #game_menu()
+        game_menu()
     elif main_menu_choice == "2":
         #food_menu()
         print('This will redirect to the food menu')
@@ -65,5 +65,5 @@ def main_menu():
         print("Please try again")
         main_menu()
 
-
-main_menu()
+if __name__ == "__main__":
+    main_menu()
