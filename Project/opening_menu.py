@@ -37,7 +37,7 @@ def opening_menu():
     time.sleep(2)
     print('lets start by creating a character.')
     print(input('please enter any key to proceed:'))
-    character_menu()
+    character_name()
 
 if __name__ == "__main__":
     opening_menu()

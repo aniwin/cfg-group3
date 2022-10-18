@@ -1,7 +1,7 @@
 import random
 from main_menu import *
 
-def character_name(self):
+def character_name():
     name = input("What would you like to call your pet? ")
     confirm = input("Are you sure you would like to call your pet {}? y/n".format(name))
     while confirm != 'y' and confirm != 'n':
@@ -15,16 +15,16 @@ def character_name(self):
                     name))
     if confirm == 'y':
         print("It's time to meet {}!".format(name))
-    return name
+    character_gender()
 
-def character_gender(self):
+def character_gender():
     gender = "unknown"
     gender_choose_or_random = input("Would you like to choose your pet's gender or have it randomly assigned? Respond with 'choose' or 'random'")
     while gender_choose_or_random != "choose" and gender_choose_or_random != "random":
         print("Sorry that is not a valid input.")
         gender_choose_or_random = input("Would you like to choose your pet's gender or have it randomly assigned? Respond with 'choose' or 'random'")
     if gender_choose_or_random == "choose":
-        while self.gender != "male" and self.gender != "female":
+        while gender != "male" and gender != "female":
             gender_choice = input("Would you like your pet to be male or female? m/f")
             if gender_choice == "m":
                 gender = "male"
@@ -34,14 +34,6 @@ def character_gender(self):
                 gender = "female"
                 print("Congratulations, your new pet is female!")
                 main_menu()
-<<<<<<< Updated upstream
-        return gender
-
-
-character = CharacterCreation()
-character.character_name()
-character.character_gender()
-=======
             else:
                 print("Sorry that gender isn't currently available, please select from the available options.")
     elif gender_choose_or_random == "random":
@@ -53,7 +45,7 @@ character.character_gender()
         elif gender == "female":
             print("Congratulations, your new pet is female!")
             main_menu()
->>>>>>> Stashed changes
+
 
 if __name__ == "__main__":
-    character_menu()
+    character_name()
