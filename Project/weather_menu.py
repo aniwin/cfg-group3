@@ -121,9 +121,11 @@ def weather_advisor(): # depending on the weather code returned for a certain ci
     if replay == "y":
         weather_advisor()
     elif replay == "n":
-        game_menu()
+         game_menu()
     else:
-        print("invalid input!")
+         print("invalid input!")
 
+
+weather_advisor()
 if __name__ == "__main__":
     weather_advisor()
