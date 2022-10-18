@@ -1,5 +1,5 @@
 import time
-from character_menu import *
+# from character_menu import *
 def opening_menu():
     print('loading...')
     time.sleep(2)
@@ -37,7 +37,7 @@ def opening_menu():
     time.sleep(2)
     print('lets start by creating a character.')
     print(input('please enter any key to proceed:'))
-    character_name()
-
-if __name__ == "__main__":
-    opening_menu()
+    # character_name()
+opening_menu()
+# if __name__ == "__main__":
+#     opening_menu()
