@@ -58,8 +58,17 @@ def feed_pet():
 
     all_foods = merge(foods_i_like, foods_i_dislike)
     print(all_foods)
-    chosen_food = input("What do you want to feed me? Input number 1 - 10: ")
-    chosen_food_int = int(chosen_food)
+    while True:
+        try:
+            chosen_food = input("What do you want to feed me? Input number 1 - 10: ")
+            chosen_food_int = int(chosen_food)
+        except ValueError:
+            print("Oops! That wasn't a valid number. Try again.")
+        else:
+            if 1 <= chosen_food_int <= 10:
+                break
+            else:
+                print("Number out of range. Please try again")
 
     if chosen_food_int in foods_i_like.keys():
         print(f"YUM YUM!...I like {(foods_i_like[chosen_food_int])}")
