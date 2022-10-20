@@ -97,13 +97,15 @@ def feed_pet():
                     delete_score.truncate()
             elif occurrences == 0:
                 print("You fed me a food I don't like!")
-
-    with open("daily_scores_feed_pet.txt", 'r') as file:
-        data = file.read()
-        occurrences = data.count("*")
-        if occurrences in available_levels.keys():
-            print("----H U N G E R----")
+    try:
+        with open("daily_scores_feed_pet.txt", 'r') as file:
+            data = file.read()
+            occurrences = data.count("*")
+            if occurrences in available_levels.keys():
+                print("----H U N G E R----")
             print(available_levels[(occurrences)])
+    except(FileNotFoundError, PermissionError):
+        print("you don't have permission to access this file")
 
     play_again = input(str("Play again? y/n: ")).lower()
 
