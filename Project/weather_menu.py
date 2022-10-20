@@ -1,4 +1,4 @@
-from game_menu import *
+# from game_menu import *
 from datetime import datetime
 import requests
 
@@ -41,16 +41,21 @@ def weather_advisor(): # depending on the weather code returned for a certain ci
             print("❄F I N D-S N O W❄")
             print(available_levels[(occurrences)])
 
-    apiKey = "1969ff8fbf12db1aa43981ac976e2c9b" # api key for openweatherapi
 
-    baseURL = "https://api.openweathermap.org/data/2.5/weather?q=" # base URL for endpoint
+    try:
+        apiKey = "1969ff8fbf12db1aa43981ac976e2c9b"  # api key for openweatherapi
 
-    print("I can help you with the weather!")
-    cityName = input("Tell me what city are you in?: ")
+        baseURL = "https://api.openweathermap.org/data/2.5/weather?q="  # base URL for endpoint
 
-    completeURL = baseURL + cityName + "&appid=" + apiKey # forms full URL based on user input
+        print("I can help you with the weather!")
+        cityName = input("Tell me what city are you in?: ")
+        completeURL = baseURL + cityName + "&appid=" + apiKey # forms full URL based on user input
 
-    response = requests.get(completeURL) # response from endpoint
+        response = requests.get(completeURL) # response from endpoint
+        response.raise_for_status()
+    except requests.exceptions.ConnectionError as connecterr:
+        print("Error connecting:", connecterr)
+
     x = response.json()
 
     if x["cod"] != "404":
