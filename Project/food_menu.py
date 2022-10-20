@@ -43,13 +43,15 @@ def feed_pet():
         level = 0
         with open("daily_scores_feed_pet.txt", 'w+') as text_file:
             pass
-
-    with open("daily_scores_feed_pet.txt", 'r') as file:
-        data = file.read()
-        occurrences = data.count("*")
-        if occurrences in available_levels.keys():
-            print("----H U N G E R----")
-            print(available_levels[(occurrences)])
+    try:
+        with open("daily_scores_feed_pet.txt", 'r') as file:
+            data = file.read()
+            occurrences = data.count("*")
+            if occurrences in available_levels.keys():
+                print("----H U N G E R----")
+                print(available_levels[(occurrences)])
+    except(FileNotFoundError, PermissionError):
+        print("Sorry the file doesn't exist or you don't have permission to access the file")
 
     print("I have these foods available: ")
     def merge(foods_i_like, foods_i_dislike):
