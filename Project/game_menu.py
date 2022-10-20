@@ -15,6 +15,6 @@ def game_menu():
     else:
         print("Invalid input. Enter 1, 2 or 3!")
         game_menu()
-game_menu()
-# if __name__ == "__main__":
-#     game_menu()
+
+if __name__ == "__main__":
+    game_menu()

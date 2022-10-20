@@ -1,7 +1,7 @@
 import time
 
 
-def stats():
+#def stats():
 
     available_levels = {
         0: "□ □ □ □ □ □ □ □ □ □",
@@ -74,7 +74,7 @@ def stats():
             """)
             time.sleep(2)
             print(available_levels[(occurrences)])
-stats()
+
 
 if __name__ == "__main__":
-    stats()
+    #stats()

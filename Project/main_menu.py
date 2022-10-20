@@ -1,6 +1,8 @@
 import sys
 import time
-# from game_menu import *
+from game_menu import *
+from food_menu import *
+
 def main_menu():
     print('loading...')
     time.sleep(1.5)
@@ -28,9 +30,9 @@ def main_menu():
 
         print('This will redirect to the game menu')
         time.sleep(3)
-        #game_menu()
+        game_menu()
     elif main_menu_choice == "2":
-        #food_menu()
+        feed_pet()
         print('This will redirect to the food menu')
     elif main_menu_choice == "3":
         #sleep_menu()
@@ -64,6 +66,7 @@ def main_menu():
         print("You must only select either 1, 2, 3, or 4")
         print("Please try again")
         main_menu()
-main_menu()
-# if __name__ == "__main__":
-#     main_menu()
+
+
+if __name__ == "__main__":
+    main_menu()

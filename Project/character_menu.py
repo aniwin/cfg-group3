@@ -1,5 +1,5 @@
 import random
-# from main_menu import *
+from main_menu import *
 
 def character_name():
     name = input("What would you like to call your pet? ")
@@ -16,8 +16,6 @@ def character_name():
     if confirm == 'y':
         print("It's time to meet {}!".format(name))
 
-character_name()
-def character_gender():
     gender = "unknown"
     gender_choose_or_random = input("Would you like to choose your pet's gender or have it randomly assigned? Respond with 'choose' or 'random'")
     while gender_choose_or_random != "choose" and gender_choose_or_random != "random":
@@ -29,11 +27,11 @@ def character_gender():
             if gender_choice == "m":
                 gender = "male"
                 print("Congratulations, your new pet is male!")
-                # main_menu()
+                main_menu()
             elif gender_choice == "f":
                 gender = "female"
                 print("Congratulations, your new pet is female!")
-                # main_menu()
+                main_menu()
             else:
                 print("Sorry that gender isn't currently available, please select from the available options.")
     elif gender_choose_or_random == "random":
@@ -41,11 +39,11 @@ def character_gender():
         gender = (random.choice(gender_list))
         if gender == "male":
             print("Congratulations, your new pet is male!")
-            # main_menu()
+            main_menu()
         elif gender == "female":
             print("Congratulations, your new pet is female!")
-            # main_menu()
-character_gender()
+            main_menu()
 
-# if __name__ == "__main__":
-#     character_name()
+
+if __name__ == "__main__":
+    character_name()
