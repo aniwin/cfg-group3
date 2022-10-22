@@ -1,7 +1,7 @@
 import time
+from main_menu import *
 
-
-#def stats():
+def stats_menu():
 
     available_levels = {
         0: "□ □ □ □ □ □ □ □ □ □",
@@ -16,6 +16,9 @@ import time
         9: "■ ■ ■ ■ ■ ■ ■ ■ ■ □",
         10: "■ ■ ■ ■ ■ ■ ■ ■ ■ ■"
     }
+
+
+
     print("Let's check in with your pet and see how they're doing!")
     time.sleep(2)
     print("""
@@ -74,7 +77,26 @@ import time
             """)
             time.sleep(2)
             print(available_levels[(occurrences)])
+            time.sleep(2)
+    stats_menu_choice = input("""
+                          1: View your pet's current stats
+                          2: Return to Main Menu
 
+
+                          Please enter your choice: """)
+
+    if stats_menu_choice == "1":
+        print('This will reload the View Stats page')
+        time.sleep(3)
+        stats_menu()
+    elif stats_menu_choice == "2":
+        print('This will redirect to the Main Menu')
+        time.sleep(3)
+        main_menu()
+    else:
+        print('Unsure of your choice, you will be redirected to the Main Menu')
+        time.sleep(3)
+        main_menu()
 
 if __name__ == "__main__":
-    #stats()
+    stats_menu()

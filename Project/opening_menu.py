@@ -1,9 +1,13 @@
 import time
 from character_menu import *
 def opening_menu():
-    print('loading...')
+    print('''
+                                          loading...
+    ''')
     time.sleep(2)
-    print('ready to play!')
+    print('''
+                                        ready to play!
+    ''')
     time.sleep(1.5)
     print(
         '''

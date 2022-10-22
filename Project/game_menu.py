@@ -2,7 +2,7 @@ from weather_menu import *
 from rock_paper_scissors_menu import *
 from main_menu import *
 
-def game_menu():
+def menu_games():
     print("GAMES")
     choice = input("1: Rock👊 Paper✋ Scissors✌\n2: Get my weather advice\n3: Return to main menu\nPlease choose an option: ")
 
@@ -14,7 +14,7 @@ def game_menu():
         main_menu()     # link back to main menu
     else:
         print("Invalid input. Enter 1, 2 or 3!")
-        game_menu()
+        menu_games()
 
 if __name__ == "__main__":
-    game_menu()
+    menu_games()
