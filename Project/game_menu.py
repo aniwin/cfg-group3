@@ -14,7 +14,9 @@ def menu_games():
         main_menu()     # link back to main menu
     else:
         print("Invalid input. Enter 1, 2 or 3!")
+
         menu_games()
 
 if __name__ == "__main__":
     menu_games()
+
