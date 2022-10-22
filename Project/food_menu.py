@@ -1,8 +1,9 @@
 
 ### to run this file type this into your terminal: pip install requests
+import time
 
-from main_menu import *
-
+from home_page import *
+from pet_object import *
 
 
 from datetime import datetime
@@ -51,21 +52,27 @@ def feed_pet():
         data = file.read()
         occurrences = data.count("*")
         if occurrences in available_levels.keys():
-            print("----H U N G E R----")
+            print("""
+                    ----H U N G E R----""")
+            time.sleep(2)
             print(available_levels[(occurrences)])
 
-    print("I have these foods available: ")
+    print(f"""
+                    {my_pet.get_name()}has these foods available.
+                    Try and choose something {my_pet.get_name()} will like!: """)
     def merge(foods_i_like, foods_i_dislike):
         list_all_foods = {**foods_i_like, **foods_i_dislike}
         return list_all_foods
 
     all_foods = merge(foods_i_like, foods_i_dislike)
     print(all_foods)
-    chosen_food = input("What do you want to feed me? Input number 1 - 10: ")
+    chosen_food = input("""
+                    What do you want to feed me? Input number 1 - 10: """)
     chosen_food_int = int(chosen_food)
 
     if chosen_food_int in foods_i_like.keys():
-        print(f"YUM YUM!...I like {(foods_i_like[chosen_food_int])}")
+        print(f"""
+                    YUM YUM!...I like {(foods_i_like[chosen_food_int])}""")
         with open("daily_scores_feed_pet.txt", 'r+') as file:
             data = file.read()
             occurrences = data.count("*")
@@ -73,13 +80,15 @@ def feed_pet():
                 with open("daily_scores_feed_pet.txt", 'a+') as text_file:
                     text_file.write("*")
             elif occurrences == 10:
-                print("You overfed me and I was sick! 🤢")
+                print("""
+                    You overfed me and I was sick! 🤢""")
                 with open("daily_scores_feed_pet.txt", 'rb+') as delete_score:
                     delete_score.seek(-5, os.SEEK_END)
                     delete_score.truncate()
 
     elif chosen_food_int in foods_i_dislike.keys():
-        print(f"YUCK!...I hate {(foods_i_dislike[chosen_food_int])}")
+        print(f"""
+                    YUCK!...I hate {(foods_i_dislike[chosen_food_int])}""")
         with open("daily_scores_feed_pet.txt", 'r+') as file:
             data = file.read()
             occurrences = data.count("*")
@@ -88,23 +97,27 @@ def feed_pet():
                     delete_score.seek(-1, os.SEEK_END)
                     delete_score.truncate()
             elif occurrences == 0:
-                print("You fed me a food I don't like!")
+                print("""
+                    You fed me a food I don't like!""")
 
     with open("daily_scores_feed_pet.txt", 'r') as file:
         data = file.read()
         occurrences = data.count("*")
         if occurrences in available_levels.keys():
-            print("----H U N G E R----")
+            print("""
+                    ----H U N G E R----""")
             print(available_levels[(occurrences)])
 
-    play_again = input(str("Play again? y/n: ")).lower()
+    play_again = input(str("""
+                    Play again? y/n: """)).lower()
 
     if play_again == "y":
         feed_pet()
     elif play_again == "n":
         main_menu()
     else:
-        print("invalid input!")
+        print("""
+                    Invalid input!""")
 
 
 if __name__ == "__main__":
