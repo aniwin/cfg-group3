@@ -1,8 +1,9 @@
 import sys
 import time
 from game_menu import *
-from food_menu import *
 from view_stats_menu import *
+from food_menu import *
+
 def main_menu():
     print('loading...')
     time.sleep(1.5)
@@ -30,16 +31,18 @@ def main_menu():
 
         print('This will redirect to the game menu')
         time.sleep(3)
-        menu_games()
+        game_menu()
     elif main_menu_choice == "2":
-        feed_pet()
         print('This will redirect to the food menu')
+        time.sleep(3)
+        feed_pet()
     elif main_menu_choice == "3":
         #sleep_menu()
         print('This will redirect to the sleep menu')
     elif main_menu_choice == "4":
-        stats_menu()
         print('This will redirect to the stats menu')
+        time.sleep(3)
+        stats()
     elif main_menu_choice == "5":
         print('Continuing will end all current progress')
         time.sleep(0.5)
@@ -66,7 +69,6 @@ def main_menu():
         print("You must only select either 1, 2, 3, or 4")
         print("Please try again")
         main_menu()
-
 
 if __name__ == "__main__":
     main_menu()

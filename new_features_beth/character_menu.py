@@ -15,7 +15,9 @@ def character_name():
                     name))
     if confirm == 'y':
         print("It's time to meet {}!".format(name))
+    character_gender()
 
+def character_gender():
     gender = "unknown"
     gender_choose_or_random = input("Would you like to choose your pet's gender or have it randomly assigned? Respond with 'choose' or 'random'")
     while gender_choose_or_random != "choose" and gender_choose_or_random != "random":

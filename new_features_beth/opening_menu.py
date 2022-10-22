@@ -1,13 +1,9 @@
 import time
 from character_menu import *
 def opening_menu():
-    print('''
-                                          loading...
-    ''')
+    print('loading...')
     time.sleep(2)
-    print('''
-                                        ready to play!
-    ''')
+    print('ready to play!')
     time.sleep(1.5)
     print(
         '''
@@ -40,6 +36,7 @@ def opening_menu():
     )
     time.sleep(2)
     print('lets start by creating a character.')
+    print(input('please enter any key to proceed:'))
     character_name()
 
 if __name__ == "__main__":

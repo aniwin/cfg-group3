@@ -23,7 +23,7 @@ def rock_paper_scissors_menu():
         rock_paper_scissors()
 
     elif choice == "3":
-        game_menu()
+        menu_games()
     else:
         print("Choose 1, 2, or 3!")
         rock_paper_scissors()
@@ -161,7 +161,7 @@ def rock_paper_scissors():
             if play_again == "y":
                 rock_paper_scissors()
             else:
-                game_menu()
+                menu_games()
 
         elif pet_score == score_limit:
             print("""  
@@ -182,7 +182,7 @@ def rock_paper_scissors():
             if play_again == "y":
                 rock_paper_scissors()
             else:
-                game_menu()
+                menu_games()
 
 if __name__ == "__main__":
     rock_paper_scissors_menu()

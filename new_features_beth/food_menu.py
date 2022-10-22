@@ -1,8 +1,5 @@
-
-### to run this file type this into your terminal: pip install requests
-
 from main_menu import *
-
+from game_menu import *
 
 
 from datetime import datetime
@@ -102,10 +99,11 @@ def feed_pet():
     if play_again == "y":
         feed_pet()
     elif play_again == "n":
-        main_menu()
+        game_menu()
     else:
         print("invalid input!")
 
+feed_pet()
 
 if __name__ == "__main__":
     feed_pet()
