@@ -1,6 +1,6 @@
 import time
-from main_menu import *
-
+from home_page import *
+from pet_object import *
 def stats_menu():
 
     available_levels = {
@@ -19,7 +19,7 @@ def stats_menu():
 
 
 
-    print("Let's check in with your pet and see how they're doing!")
+    print(f"Let's check in with {(my_pet.get_name())} and see how they're doing!")
     time.sleep(2)
     print("""
                       _______  __   __  _______  ______    _______  ___      ___                          
@@ -78,8 +78,8 @@ def stats_menu():
             time.sleep(2)
             print(available_levels[(occurrences)])
             time.sleep(2)
-    stats_menu_choice = input("""
-                          1: View your pet's current stats
+    stats_menu_choice = input(f"""
+                          1: View {my_pet.get_name()}'s current stats
                           2: Return to Main Menu
 
 

@@ -2,11 +2,11 @@ import time
 from character_menu import *
 def opening_menu():
     print('''
-                                          loading...
+                                          Loading...
     ''')
     time.sleep(2)
     print('''
-                                        ready to play!
+                                        Ready to play!
     ''')
     time.sleep(1.5)
     print(
@@ -18,7 +18,7 @@ def opening_menu():
         ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗       ██║   ╚██████╔╝
          ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝       ╚═╝    ╚═════╝ 
         ''')
-    time.sleep(2)
+    time.sleep(3)
     print(
         '''
         ███╗   ██╗ █████╗ ███╗   ███╗███████╗     ██████╗ ███████╗     ██████╗  █████╗ ███╗   ███╗███████╗
@@ -28,6 +28,7 @@ def opening_menu():
         ██║ ╚████║██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝██║         ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗
         ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝ ╚═╝          ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
         ''')
+    time.sleep(2)
     print(
         '''
                         .        .   .          .---.     ,_ .                      ,---     ,---.                    ,--. 
@@ -38,8 +39,11 @@ def opening_menu():
                                          `-'                                                  `-+'              '          
         '''
     )
-    time.sleep(2)
-    print('lets start by creating a character.')
+    time.sleep(3)
+    print('''
+                                Lets start by creating a character...
+    ''')
+    time.sleep(3)
     character_name()
 
 if __name__ == "__main__":

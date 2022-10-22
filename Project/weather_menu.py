@@ -1,5 +1,5 @@
 from game_menu import *
-from main_menu import *
+from home_page import *
 from datetime import datetime
 import requests
 
@@ -122,7 +122,9 @@ def weather_advisor(): # depending on the weather code returned for a certain ci
     if replay == "y":
         weather_advisor()
     elif replay == "n":
-         menu_games()
+        print("""
+        We will take you back to the Main Menu""")
+        main_menu()
     else:
         print("invalid input! You will be redirected to the Games Menu")
         menu_games()

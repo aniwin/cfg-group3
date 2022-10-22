@@ -1,5 +1,6 @@
-from main_menu import *
 from game_menu import *
+from home_page import *
+from pet_object import *
 
 import random
 from datetime import datetime
@@ -73,55 +74,55 @@ def rock_paper_scissors():
 
         my_list = "rock👊", "paper✋", "scissors✌"
         pet_guess = random.choice(my_list)
-        print(f"YOU played: {user_guess} VS PET played: {pet_guess}")
+        print(f"YOU played: {user_guess} VS {my_pet.get_name()} played: {pet_guess}")
 
         if pet_guess == "rock👊" and user_guess == "rock👊":
             print("Tie!")
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "paper✋" and user_guess == "paper✋":
             print("Tie!")
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "scissors✌" and user_guess == "scissors✌":
             print("Tie!")
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "paper✋" and user_guess == "rock👊":
-            print("Pet scored!")
+            print(f"{my_pet.get_name()} scored!")
 
             pet_score = int(pet_score) + 1
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "rock👊" and user_guess == "paper✋":
             print("You scored!")
 
             user_score = int(user_score) + 1
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "rock👊" and user_guess == "scissors✌":
-            print("Pet scored!")
+            print(f"{my_pet.get_name()} scored!")
 
             pet_score = int(pet_score) + 1
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "scissors✌" and user_guess == "rock👊":
             print("You scored!")
 
             user_score = int(user_score) + 1
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "paper✋" and user_guess == "scissors✌":
             print("You scored!")
 
             user_score = int(user_score) + 1
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
         if pet_guess == "scissors✌" and user_guess == "paper✋":
-            print("Pet scored!")
+            print(f"{my_pet.get_name()} scored!")
 
             pet_score = int(pet_score) + 1
-            print(f"YOU: {user_score} VS Pet: {pet_score}")
+            print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
 
         if user_score == score_limit:
@@ -143,6 +144,7 @@ def rock_paper_scissors():
 
 
         if user_score == score_limit:
+
             print("""
                     ██    ██  ██████  ██    ██     ██     ██ ██ ███    ██ 
                      ██  ██  ██    ██ ██    ██     ██     ██ ██ ████   ██ 
@@ -182,7 +184,7 @@ def rock_paper_scissors():
             if play_again == "y":
                 rock_paper_scissors()
             else:
-                menu_games()
+                main_menu()
 
 if __name__ == "__main__":
     rock_paper_scissors_menu()
