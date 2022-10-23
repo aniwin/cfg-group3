@@ -4,6 +4,9 @@ from game_menu import *
 from food_menu import *
 from view_stats_menu import *
 from pet_object import *
+from midnight_reset import *
+
+midnight_reset()
 def main_menu():
     print('''
                                         loading...

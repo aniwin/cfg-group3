@@ -1,5 +1,6 @@
 import time
 from character_menu import *
+from ascii_art import *
 def opening_menu():
     print('''
                                           Loading...

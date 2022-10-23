@@ -2,11 +2,11 @@
 from opening_menu import *
 import time
 def create_score_records():
-    with open('daily_scores_rock_paper_scissors.txt', 'w') as file:
+    with open('daily_scores_rock_paper_scissors.csv', 'w') as file:
         pass
-    with open('daily_scores_feed_pet.txt', 'w') as file:
+    with open('daily_scores_feed_pet.csv', 'w') as file:
         pass
-    with open('daily_scores_weather_guess.txt', 'w') as file:
+    with open('daily_scores_weather_guess.csv', 'w') as file:
         pass
     opening_menu()
 
