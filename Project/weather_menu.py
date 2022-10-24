@@ -1,5 +1,4 @@
 from game_menu import *
-from home_page import *
 from available_levels import *
 from datetime import datetime
 import requests
@@ -16,7 +15,7 @@ weather_dict = {
     7: "Cloudy with a chance of meatballs ☁!"  # clouds
 }
 
-def weather_advisor(): # depending on the weather code returned for a certain city the pet will give advice
+def weather_advisor(redirect_to_main): # depending on the weather code returned for a certain city the pet will give advice
 
     # THIS CODE NEEDS TO BE IMPORTED FROM AVAILABLE_LEVELS.PY
     available_levels
@@ -125,16 +124,14 @@ def weather_advisor(): # depending on the weather code returned for a certain ci
 
     replay = input(str("Play again? y/n: ")).lower()
     if replay == "y":
-        weather_advisor()
+        weather_advisor(redirect_to_main)
     elif replay == "n":
         print("""
-        We will take you back to the Main Menu""")
-        main_menu()
+        We will take you back to the Games Menu""")
+        redirect_to_main()
     else:
         print("invalid input! You will be redirected to the Games Menu")
-        menu_games()
+        redirect_to_main()
 
 # give_weather_advice()
 
-if __name__ == "__main__":
-    weather_advisor()
