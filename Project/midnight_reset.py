@@ -11,3 +11,7 @@ def midnight_reset():
             pass
         with open("daily_scores_feed_pet.csv", 'w+') as text_file:
             pass
+        with open('daily_scores_sleep.csv', 'w+') as file:
+            pass
+        with open("daily_scores_sleep.csv", 'a+') as text_file:
+            text_file.write("**********")
