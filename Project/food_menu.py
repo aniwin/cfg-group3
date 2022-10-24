@@ -28,21 +28,7 @@ foods_i_dislike = {
 def feed_pet(return_to_main):
     available_levels
 
-    # time_now = datetime.now()
-    # reset_time = (time_now.strftime("%H:%M"))
-    # if reset_time == "00:00":
-    #     level = 0
-    #     with open("daily_scores_feed_pet.csv", 'w+') as text_file:
-    #         pass
     get_daily_hunger_score()
-    # with open("daily_scores_feed_pet.csv", 'r') as file:
-    #     data = file.read()
-    #     occurrences = data.count("*")
-    #     if occurrences in available_levels.keys():
-    #         print("""
-    #                 ----H U N G E R----""")
-    #         time.sleep(2)
-    #         print(available_levels[(occurrences)])
 
     print(f"""
     {my_pet.get_name()} has these foods available.
@@ -84,13 +70,6 @@ def feed_pet(return_to_main):
                 print("""You fed me a food I don't like!""")
 
     get_daily_hunger_score()
-    # with open("daily_scores_feed_pet.csv", 'r') as file:
-    #     data = file.read()
-    #     occurrences = data.count("*")
-    #     if occurrences in available_levels.keys():
-    #         print("""
-    #                 ----H U N G E R----""")
-    #         print(available_levels[(occurrences)])
 
     play_again = input(str("""Play again? y/n: """)).lower()
 

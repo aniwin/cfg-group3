@@ -8,20 +8,10 @@ from home_page import *
 def stats_menu(redirect_to_home):
     available_levels
 
-
-
     print(f"Let's check in with {(my_pet.get_name())} and see how they're doing!")
     time.sleep(2)
     overall_ascii()
-#     print("""
-#                       _______  __   __  _______  ______    _______  ___      ___
-#                      |       ||  | |  ||       ||    _ |  |   _   ||   |    |   |
-#  ____   ____   ____  |   _   ||  |_|  ||    ___||   | ||  |  |_|  ||   |    |   |     ____   ____   ____
-# |____| |____| |____| |  | |  ||       ||   |___ |   |_||_ |       ||   |    |   |    |____| |____| |____|
-#                      |  |_|  ||       ||    ___||    __  ||       ||   |___ |   |___
-#                      |       | |     | |   |___ |   |  | ||   _   ||       ||       |
-#                      |_______|  |___|  |_______||___|  |_||__| |__||_______||_______|
-#                      """)
+
     with open("daily_scores_feed_pet.csv", 'r') as file:
         data = file.read()
         hunger = data.count("*")
@@ -33,28 +23,14 @@ def stats_menu(redirect_to_home):
         find_snow = data.count("*")
     average = round((hunger+happy+find_snow) / 3)
 
-
     if average in available_levels.keys():
         print(available_levels[average])
-
 
     with open("daily_scores_feed_pet.csv", 'r') as file:
         data = file.read()
         occurrences = data.count("*")
         if occurrences in available_levels.keys():
             hunger_ascii()
-#             print("""
-#                       __   __  __   __  __    _  _______  _______  ______
-#                      |  | |  ||  | |  ||  |  | ||       ||       ||    _ |
-#  ____   ____   ____  |  |_|  ||  | |  ||   |_| ||    ___||    ___||   | ||   ____   ____   ____
-# |____| |____| |____| |       ||  |_|  ||       ||   | __ |   |___ |   |_||_ |____| |____| |____|
-#                      |       ||       ||  _    ||   ||  ||    ___||    __  |
-#                      |   _   ||       || | |   ||   |_| ||   |___ |   |  | |
-#                      |__| |__||_______||_|  |__||_______||_______||___|  |_|
-#
-#
-#
-#             """)
             time.sleep(2)
             print(available_levels[(occurrences)])
 
@@ -63,16 +39,6 @@ def stats_menu(redirect_to_home):
         occurrences = data.count("*")
         if occurrences in available_levels.keys():
             happiness_ascii()
-#             print("""
-#                       __   __  _______  _______  _______  ___   __    _  _______  _______  _______
-#                      |  | |  ||   _   ||       ||       ||   | |  |  | ||       ||       ||       |
-#  ____   ____   ____  |  |_|  ||  |_|  ||    _  ||    _  ||   | |   |_| ||    ___||  _____||  _____| ____   ____   ____
-# |____| |____| |____| |       ||       ||   |_| ||   |_| ||   | |       ||   |___ | |_____ | |_____ |____| |____| |____|
-#                      |       ||       ||    ___||    ___||   | |  _    ||    ___||_____  ||_____  |
-#                      |   _   ||   _   ||   |    |   |    |   | | | |   ||   |___  _____| | _____| |
-#                      |__| |__||__| |__||___|    |___|    |___| |_|  |__||_______||_______||_______|
-#
-#             """)
             time.sleep(2)
             print(available_levels[(occurrences)])
             time.sleep(2)
@@ -84,13 +50,6 @@ def stats_menu(redirect_to_home):
         occurrences = data.count("*")
         if occurrences in available_levels.keys():
             find_snow_ascii()
-            # print("""
-            #          ______ _____ _   _ _____     _____ _   _  ______          __
-            #         |  ____|_   _| \ | |  __ \   / ____| \ | |/ __ \ \        / /
-            #         | |__    | | |  \| | |  | | | (___ |  \| | |  | \ \  /\  / /
-            #         |  __|   | | | . ` | |  | |  \___ \| . ` | |  | |\ \/  \/ /
-            #         | |     _| |_| |\  | |__| |  ____) | |\  | |__| | \  /\  /
-            #         |_|    |_____|_| \_|_____/  |_____/|_| \_|\____/   \/  \/   """)
             time.sleep(2)
             print(available_levels[(occurrences)])
             time.sleep(2)

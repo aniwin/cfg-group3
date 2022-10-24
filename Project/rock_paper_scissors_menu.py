@@ -27,5 +27,4 @@ def rock_paper_scissors_menu(redirect_to_games):
         redirect_to_games()
     else:
         print("Choose 1, 2, or 3!")
-        rock_paper_scissors_menu(redirect_to_games)
 
