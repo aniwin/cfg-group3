@@ -1,3 +1,3 @@
 from classes import *
 
-my_pet = Pet('unknown', 'unknown')
+my_pet = Pet('unknown', 'unknown', False)
