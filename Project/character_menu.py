@@ -3,6 +3,23 @@ from home_page import *
 from pet_object import *
 
 
+import random
+from datetime import datetime
+from home_page import *
+from pet_object import *
+
+#birthday decorator
+def birthday(func):
+    '''Log the time and date your pet was born'''
+
+    def wrapper():
+        func()
+        now = datetime.now()
+        bday = now.strftime("%H:%M:%S on %B %d, %Y")
+        print(f"{my_pet.get_name()} was born at {bday}")
+    return wrapper
+
+@birthday
 def character_name():
 
     pet_name = my_pet.update_name(input("""
@@ -33,7 +50,6 @@ def character_name():
         print(f"""
                             It's time to meet {(my_pet.get_name())}!
         """)
-        main_menu()
 
 
     pet_gender = "unknown"

@@ -1,7 +1,6 @@
 from game_menu import *
 from home_page import *
 from available_levels import *
-from datetime import datetime
 import requests
 from retrieve_daily_scores import get_daily_weather_score
 from api_key import *
@@ -17,31 +16,14 @@ weather_dict = {
 }
 
 def weather_advisor(): # depending on the weather code returned for a certain city the pet will give advice
-
-    # THIS CODE NEEDS TO BE IMPORTED FROM AVAILABLE_LEVELS.PY
     available_levels
-    # THIS CODE COULD POTENTIALLY BE ON ITS OWN IN A FUNCTION
-    # reset the score to zero at midnight
-    # time_now = datetime.now()
-    # reset_time = (time_now.strftime("%H:%M"))
-    # if reset_time == "00:00":
-    #     level = 0
-    #     with open("daily_scores_weather_guess.csv", 'w+') as text_file:
-    #         pass
 
-    # THIS CODE NEEDS TO BE IMPORTED FROM RETRIEVE_DAILY_SCORES.PY
     get_daily_weather_score()
-    # with open("daily_scores_weather_guess.csv", 'r') as file:
-    #     data = file.read()
-    #     occurrences = data.count("*")
-    #     if occurrences in available_levels.keys():
-    #         print("❄F I N D-S N O W❄")
-    #         print(available_levels[(occurrences)])
 
-    # THIS CODE NEEDS TO BE IN A SEPARATE FUNCTION
-    apiKey #= "1969ff8fbf12db1aa43981ac976e2c9b" # api key for openweatherapi
 
-    baseURL #= "https://api.openweathermap.org/data/2.5/weather?q=" # base URL for endpoint
+    apiKey
+
+    baseURL
 
     # PART ONE OF GAME
     print("I can help you with the weather!")
@@ -109,14 +91,7 @@ def weather_advisor(): # depending on the weather code returned for a certain ci
                 with open("daily_scores_weather_guess.csv", 'a+') as text_file:
                     text_file.write("**********")
 
-                # THIS CODE NEEDS TO BE IMPORTED FROM RETRIEVE_DAILY_SCORES.PY
                 get_daily_weather_score()
-                # with open("daily_scores_weather_guess.csv", 'r') as file:
-                #     data = file.read()
-                #     occurrences = data.count("*")
-                #     if occurrences in available_levels.keys():
-                #         print("❄F I N D-S N O W❄")
-                #         print(available_levels[(occurrences)])
             else:
                 print(f"You guessed wrong! 😥 It's not snowing in {guess_city_snowing}!")
                 print(f"It's currently {weather_description_guess_snow} in {guess_city_snowing}")
@@ -133,8 +108,6 @@ def weather_advisor(): # depending on the weather code returned for a certain ci
     else:
         print("invalid input! You will be redirected to the Games Menu")
         menu_games()
-
-# give_weather_advice()
 
 if __name__ == "__main__":
     weather_advisor()

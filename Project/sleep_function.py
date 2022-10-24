@@ -7,7 +7,7 @@ def sleep_menu():
         sleep = (input('would you like to put pet to sleep? y/n:'))
         if sleep == 'y':
             my_pet.is_asleep()
-            main_menu()
+            main_menu
         elif sleep == 'n':
             my_pet.is_not_asleep()
             main_menu()
