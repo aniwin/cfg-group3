@@ -10,11 +10,7 @@ class Pet():
     def __init__(self, name, gender, sleep):
         self.name = name
         self.gender = gender
-        self.happiness = 0
-        self.hunger = 0
-        self.findsnow = False
         self.sleep = sleep
-
 
     def update_name(self, name):
         self.name = name
@@ -38,4 +34,6 @@ class Pet():
 # understand how to return a True value for find snow
 # working sleep function to return True
 
-
+        # self.happiness = 0
+        # self.hunger = 0
+        # self.findsnow = False

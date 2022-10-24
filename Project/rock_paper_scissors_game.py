@@ -1,7 +1,7 @@
 from game_menu import *
 from home_page import *
 from pet_object import *
-from ascii_art import *
+from ascii_text import *
 from available_levels import *
 import random
 from datetime import datetime

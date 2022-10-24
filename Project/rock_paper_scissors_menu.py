@@ -10,7 +10,7 @@ from rock_paper_scissors_game import *
 def rock_paper_scissors_menu(redirect_to_games):
 
     print("ROCK👊 PAPER✋ SCISSORS✌")
-    choice = input("1: PLAY\n2: RULES\n3: Return to GAMES MENU\nPlease choose an option: ")
+    choice = input("1: PLAY\n2: RULES\n3: Return to MAIN MENU\nPlease choose an option: ")
 
     if choice == "1":
         rock_paper_scissors(rock_paper_scissors_menu)
