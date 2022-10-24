@@ -8,6 +8,10 @@ def create_score_records():
         pass
     with open('daily_scores_weather_guess.csv', 'w') as file:
         pass
+    with open('daily_scores_sleep.csv', 'w') as file:
+        pass
+    with open("daily_scores_weather_guess.csv", 'a+') as text_file:
+            text_file.write("**********")
     opening_menu()
 
 

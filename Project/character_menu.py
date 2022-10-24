@@ -66,7 +66,6 @@ def character_name():
                 print(f"""
                             Congratulations, {my_pet.get_name()} is female!
                 """)
-
                 main_menu()
             else:
                 print("""
