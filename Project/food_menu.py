@@ -2,11 +2,9 @@
 ### to run this file type this into your terminal: pip install requests
 import time
 
-from home_page import *
 from pet_object import *
 from available_levels import *
 from retrieve_daily_scores import *
-
 
 from datetime import datetime
 import os
@@ -25,27 +23,28 @@ foods_i_dislike = {
     9: "Salad 🥗",
     10: "Custard 🍮"
 }
-def feed_pet():
+
+
+def feed_pet(return_to_main):
     available_levels
 
     get_daily_hunger_score()
 
     print(f"""
-                    {my_pet.get_name()} has these foods available.
-                    Try and choose something {my_pet.get_name()} will like!: """)
+    {my_pet.get_name()} has these foods available.
+    Try and choose something {my_pet.get_name()} will like!: 
+    """)
     def merge(foods_i_like, foods_i_dislike):
         list_all_foods = {**foods_i_like, **foods_i_dislike}
         return list_all_foods
 
     all_foods = merge(foods_i_like, foods_i_dislike)
     print(all_foods)
-    chosen_food = input("""
-                    What do you want to feed me? Input number 1 - 10: """)
+    chosen_food = input("""What do you want to feed me? Input number 1 - 10: """)
     chosen_food_int = int(chosen_food)
 
     if chosen_food_int in foods_i_like.keys():
-        print(f"""
-                    YUM YUM!...I like {(foods_i_like[chosen_food_int])}""")
+        print(f"""YUM YUM!...I like {(foods_i_like[chosen_food_int])}""")
         with open("daily_scores_feed_pet.csv", 'r+') as file:
             data = file.read()
             occurrences = data.count("*")
@@ -53,15 +52,13 @@ def feed_pet():
                 with open("daily_scores_feed_pet.csv", 'a+') as text_file:
                     text_file.write("*")
             elif occurrences == 10:
-                print("""
-                    You overfed me and I was sick! 🤢""")
+                print("""You overfed me and I was sick! 🤢""")
                 with open("daily_scores_feed_pet.csv", 'rb+') as delete_score:
                     delete_score.seek(-5, os.SEEK_END)
                     delete_score.truncate()
 
     elif chosen_food_int in foods_i_dislike.keys():
-        print(f"""
-                    YUCK!...I hate {(foods_i_dislike[chosen_food_int])}""")
+        print(f"""YUCK!...I hate {(foods_i_dislike[chosen_food_int])}""")
         with open("daily_scores_feed_pet.csv", 'r+') as file:
             data = file.read()
             occurrences = data.count("*")
@@ -70,22 +67,16 @@ def feed_pet():
                     delete_score.seek(-1, os.SEEK_END)
                     delete_score.truncate()
             elif occurrences == 0:
-                print("""
-                    You fed me a food I don't like!""")
+                print("""You fed me a food I don't like!""")
 
     get_daily_hunger_score()
 
-    play_again = input(str("""
-                    Play again? y/n: """)).lower()
+    play_again = input(str("""Play again? y/n: """)).lower()
 
     if play_again == "y":
-        feed_pet()
+        feed_pet(return_to_main)
     elif play_again == "n":
-        main_menu()
+        return_to_main()
     else:
-        print("""
-                    Invalid input!""")
-
-
-if __name__ == "__main__":
-    feed_pet()
+        print("""Invalid input!""")
+        feed_pet(return_to_main)

@@ -2,13 +2,9 @@ import time
 from character_menu import *
 from ascii_art import *
 def opening_menu():
-    print('''
-                                          Loading...
-    ''')
+    print('Loading...')
     time.sleep(2)
-    print('''
-                                        Ready to play!
-    ''')
+    print('Ready to play!')
     time.sleep(1.5)
     welcome_to()
     time.sleep(3)
@@ -16,9 +12,17 @@ def opening_menu():
     time.sleep(2)
     group_name()
     time.sleep(3)
+
     print('''
-                                Lets start by creating a character...
+                     .        .   .          .---.     ,_ .                      ,---     ,---.                    ,--. 
+     ,-. ,-. ,-. ,-. |- ,-. ,-|   |-. . .    \___  ,-. |_ |- . , , ,-. ,-. ,-.   |__      |  -'  ,-. ,-. . . ,-.    __| 
+     |   |   |-' ,-| |  |-' | |   | | | |        \ | | |  |  |/|/  ,-| |   |-'      \     |  ,-' |   | | | | | |      | 
+     `-' '   `-' `-^ `' `-' `-'   `-' `-|    `---' `-' |  `' ' '   `-^ '   `-'   `--'     `---|  '   `-' `-' |-'   `--' 
+                                       /|              '                                   ,-.|              |          
+                                      `-'                                                  `-+'              '          
     ''')
+    time.sleep(3)
+    print('Lets start by creating a character...')
     time.sleep(3)
     character_name()
 

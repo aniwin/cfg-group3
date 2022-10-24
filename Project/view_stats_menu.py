@@ -1,11 +1,11 @@
 import time
 from available_levels import *
-from home_page import *
 from pet_object import *
 from available_levels import *
 from ascii_text import *
+from home_page import *
 
-def stats_menu():
+def stats_menu(redirect_to_home):
     available_levels
 
     print(f"Let's check in with {(my_pet.get_name())} and see how they're doing!")
@@ -55,24 +55,21 @@ def stats_menu():
             time.sleep(2)
 
     stats_menu_choice = input(f"""
-                          1: View {my_pet.get_name()}'s current stats
-                          2: Return to Main Menu
+            1: View {my_pet.get_name()}'s current stats
+            2: Return to Main Menu
 
 
-                          Please enter your choice: """)
+    Please enter your choice: """)
 
     if stats_menu_choice == "1":
         print('This will reload the View Stats page')
         time.sleep(3)
-        stats_menu()
+        stats_menu(redirect_to_home)
     elif stats_menu_choice == "2":
         print('This will redirect to the Main Menu')
         time.sleep(3)
-        main_menu()
+        redirect_to_home()
     else:
         print('Unsure of your choice, you will be redirected to the Main Menu')
         time.sleep(3)
-        main_menu()
-
-if __name__ == "__main__":
-    stats_menu()
+        redirect_to_home()
