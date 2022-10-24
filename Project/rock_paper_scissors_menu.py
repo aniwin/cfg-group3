@@ -1,10 +1,11 @@
 from game_menu import *
 from home_page import *
 from pet_object import *
-
+from available_levels import *
 import random
 from datetime import datetime
 import os
+from retrieve_daily_scores import *
 
 def rock_paper_scissors_menu():
 
@@ -31,27 +32,27 @@ def rock_paper_scissors_menu():
 
 def rock_paper_scissors():
     level = 0
-    available_levels = {
-        0: "□ □ □ □ □ □ □ □ □ □",
-        1: "■ □ □ □ □ □ □ □ □ □",
-        2: "■ ■ □ □ □ □ □ □ □ □",
-        3: "■ ■ ■ □ □ □ □ □ □ □",
-        4: "■ ■ ■ ■ □ □ □ □ □ □",
-        5: "■ ■ ■ ■ ■ □ □ □ □ □",
-        6: "■ ■ ■ ■ ■ ■ □ □ □ □",
-        7: "■ ■ ■ ■ ■ ■ ■ □ □ □",
-        8: "■ ■ ■ ■ ■ ■ ■ ■ □ □",
-        9: "■ ■ ■ ■ ■ ■ ■ ■ ■ □",
-        10: "■ ■ ■ ■ ■ ■ ■ ■ ■ ■"
-    }
+    available_levels #= {
+    #     0: "□ □ □ □ □ □ □ □ □ □",
+    #     1: "■ □ □ □ □ □ □ □ □ □",
+    #     2: "■ ■ □ □ □ □ □ □ □ □",
+    #     3: "■ ■ ■ □ □ □ □ □ □ □",
+    #     4: "■ ■ ■ ■ □ □ □ □ □ □",
+    #     5: "■ ■ ■ ■ ■ □ □ □ □ □",
+    #     6: "■ ■ ■ ■ ■ ■ □ □ □ □",
+    #     7: "■ ■ ■ ■ ■ ■ ■ □ □ □",
+    #     8: "■ ■ ■ ■ ■ ■ ■ ■ □ □",
+    #     9: "■ ■ ■ ■ ■ ■ ■ ■ ■ □",
+    #     10: "■ ■ ■ ■ ■ ■ ■ ■ ■ ■"
+    # }
 
 
-    time_now = datetime.now()
-    reset_time = (time_now.strftime("%H:%M"))
-    if reset_time == "00:00":
-        level = 0
-        with open("daily_scores_rock_paper_scissors.txt", 'w+') as text_file:
-            pass
+    # time_now = datetime.now()
+    # reset_time = (time_now.strftime("%H:%M"))
+    # if reset_time == "00:00":
+    #     level = 0
+    #     with open("daily_scores_rock_paper_scissors.csv", 'w+') as text_file:
+    #         pass
 
 
     user_score = int(0)
@@ -126,38 +127,39 @@ def rock_paper_scissors():
 
 
         if user_score == score_limit:
-            with open("daily_scores_rock_paper_scissors.txt", 'r+') as file:
+            with open("daily_scores_rock_paper_scissors.csv", 'r+') as file:
                 data = file.read()
                 occurrences = data.count("*")
                 if occurrences < 10:
-                    with open("daily_scores_rock_paper_scissors.txt", 'a+') as text_file:
+                    with open("daily_scores_rock_paper_scissors.csv", 'a+') as text_file:
                         text_file.write("*")
 
         if pet_score == score_limit:
-            with open("daily_scores_rock_paper_scissors.txt", 'r+') as file:
+            with open("daily_scores_rock_paper_scissors.csv", 'r+') as file:
                 data = file.read()
                 occurrences = data.count("*")
                 if occurrences >= 1:
-                    with open("daily_scores_rock_paper_scissors.txt", 'rb+') as delete_score:
+                    with open("daily_scores_rock_paper_scissors.csv", 'rb+') as delete_score:
                         delete_score.seek(-1, os.SEEK_END)
                         delete_score.truncate()
 
 
         if user_score == score_limit:
-
-            print("""
-                    ██    ██  ██████  ██    ██     ██     ██ ██ ███    ██ 
-                     ██  ██  ██    ██ ██    ██     ██     ██ ██ ████   ██ 
-                      ████   ██    ██ ██    ██     ██  █  ██ ██ ██ ██  ██ 
-                       ██    ██    ██ ██    ██     ██ ███ ██ ██ ██  ██ ██ 
-                       ██     ██████   ██████       ███ ███  ██ ██   ████ 
-                """)
-            with open("daily_scores_rock_paper_scissors.txt", 'r') as file:
-                data = file.read()
-                occurrences = data.count("*")
-                if occurrences in available_levels.keys():
-                    print("-H A P P I N E S S-")
-                    print(available_levels[(occurrences)])
+            you_win_ascii()
+            # print("""
+            #         ██    ██  ██████  ██    ██     ██     ██ ██ ███    ██
+            #          ██  ██  ██    ██ ██    ██     ██     ██ ██ ████   ██
+            #           ████   ██    ██ ██    ██     ██  █  ██ ██ ██ ██  ██
+            #            ██    ██    ██ ██    ██     ██ ███ ██ ██ ██  ██ ██
+            #            ██     ██████   ██████       ███ ███  ██ ██   ████
+            #     """)
+            get_daily_rock_paper_scissors_score()
+            # with open("daily_scores_rock_paper_scissors.csv", 'r') as file:
+            #     data = file.read()
+            #     occurrences = data.count("*")
+            #     if occurrences in available_levels.keys():
+            #         print("-H A P P I N E S S-")
+            #         print(available_levels[(occurrences)])
 
             play_again = input("Play again? y/n: ").lower()
             if play_again == "y":
@@ -166,19 +168,21 @@ def rock_paper_scissors():
                 menu_games()
 
         elif pet_score == score_limit:
-            print("""  
-                    ██    ██  ██████  ██    ██     ██       ██████  ███████ ████████ 
-                     ██  ██  ██    ██ ██    ██     ██      ██    ██ ██         ██    
-                      ████   ██    ██ ██    ██     ██      ██    ██ ███████    ██    
-                       ██    ██    ██ ██    ██     ██      ██    ██      ██    ██    
-                       ██     ██████   ██████      ███████  ██████  ███████    ██    
-                """)
-            with open("daily_scores_rock_paper_scissors.txt", 'r') as file:
-                data = file.read()
-                occurrences = data.count("*")
-                if occurrences in available_levels.keys():
-                    print("-H A P P I N E S S-")
-                    print(available_levels[(occurrences)])
+            you_lost_ascii()
+            # print("""
+            #         ██    ██  ██████  ██    ██     ██       ██████  ███████ ████████
+            #          ██  ██  ██    ██ ██    ██     ██      ██    ██ ██         ██
+            #           ████   ██    ██ ██    ██     ██      ██    ██ ███████    ██
+            #            ██    ██    ██ ██    ██     ██      ██    ██      ██    ██
+            #            ██     ██████   ██████      ███████  ██████  ███████    ██
+            #     """)
+            get_daily_rock_paper_scissors_score()
+            # with open("daily_scores_rock_paper_scissors.csv", 'r') as file:
+            #     data = file.read()
+            #     occurrences = data.count("*")
+            #     if occurrences in available_levels.keys():
+            #         print("-H A P P I N E S S-")
+            #         print(available_levels[(occurrences)])
 
             play_again = input("Play again? y/n: ").lower()
             if play_again == "y":
