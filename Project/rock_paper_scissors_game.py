@@ -1,14 +1,14 @@
-from game_menu import *
-from home_page import *
+from rock_paper_scissors_menu import *
 from pet_object import *
 from ascii_text import *
+
 from available_levels import *
 import random
 from datetime import datetime
 import os
 from retrieve_daily_scores import *
 
-def rock_paper_scissors(return_to_games):
+def rock_paper_scissors(return_to_games_menu):
     level = 0
     available_levels #= {
     #     0: "□ □ □ □ □ □ □ □ □ □",
@@ -141,9 +141,12 @@ def rock_paper_scissors(return_to_games):
 
             play_again = input("Play again? y/n: ").lower()
             if play_again == "y":
-                rock_paper_scissors(return_to_games)
+                rock_paper_scissors(return_to_games_menu)
+            elif play_again == "n":
+                return_to_games_menu()
             else:
-                return_to_games()
+                print('unsure of your choice. you will be redirected to the rock paper scissors menu')
+                return_to_games_menu()
 
         elif pet_score == score_limit:
             you_lost_ascii()
@@ -164,9 +167,11 @@ def rock_paper_scissors(return_to_games):
 
             play_again = input("Play again? y/n: ").lower()
             if play_again == "y":
-                rock_paper_scissors(return_to_games)
+                rock_paper_scissors(return_to_games_menu)
+            elif play_again == "n":
+                return_to_games_menu()
             else:
                 print('unsure of your choice. you will be redirected to the rock paper scissors menu')
-                return_to_games()
+                return_to_games_menu()
 
 

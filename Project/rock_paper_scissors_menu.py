@@ -13,7 +13,7 @@ def rock_paper_scissors_menu(redirect_to_games):
     choice = input("1: PLAY\n2: RULES\n3: Return to MAIN MENU\nPlease choose an option: ")
 
     if choice == "1":
-        rock_paper_scissors(rock_paper_scissors_menu)
+        rock_paper_scissors(redirect_to_games)
     elif choice == "2":
         print("""
                 Rock👊 Paper✋ Scissors✌ rules:
