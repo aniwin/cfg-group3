@@ -25,6 +25,21 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
 
     baseURL
 
+    def play_again():
+        try:
+            replay = input(str("Play again? y/n: ")).lower()
+            if replay == "y":
+                weather_advisor(redirect_to_main)
+            elif replay == "n":
+                print("""
+                We will take you back to the Games Menu""")
+                redirect_to_main()
+            else:
+                raise Exception()
+        except:
+            print("invalid input!")
+            play_again()
+
     # PART ONE OF GAME
     print("I can help you with the weather!")
     cityName = input("Tell me what city are you in?: ")
@@ -87,7 +102,7 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
 
             if weather_code_for_guess >= 600 and weather_code_for_guess <= 622: # 600 or 601 or 602 or 611 or 612 or 613 or 615 or 616 or 620 or 621 or 622
                 print(f"You guessed correctly! It is snowing in {guess_city_snowing} ⛄") # snow
-
+                play_again()
                 with open("daily_scores_weather_guess.csv", 'a+') as text_file:
                     text_file.write("**********")
 
@@ -95,16 +110,9 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
             else:
                 print(f"You guessed wrong! 😥 It's not snowing in {guess_city_snowing}!")
                 print(f"It's currently {weather_description_guess_snow} in {guess_city_snowing}")
+                play_again()
         else:
             print("City Not Found")
+            play_again()
 
-    replay = input(str("Play again? y/n: ")).lower()
-    if replay == "y":
-        weather_advisor(redirect_to_main)
-    elif replay == "n":
-        print("""
-        We will take you back to the Games Menu""")
-        redirect_to_main()
-    else:
-        print("invalid input! You will be redirected to the Games Menu")
-        redirect_to_main()
+
