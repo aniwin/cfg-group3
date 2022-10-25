@@ -1,32 +1,37 @@
+import time
+
 from pet_object import *
 
 
-# def run_sleep_menu():
-#     sleep_menu(sleep_menu)
-
-def sleep_menu(redirect_to_home): # this allows us to redirect the user back to the main page,
-                                  # this is to avoid a circular import error
-    while not my_pet.sleep:
-        sleep = (input('would you like to put pet to sleep? y/n:'))
+def sleep_menu(redirect_to_home):   # avoiding a circular import error
+    if not my_pet.get_sleep():
+        sleep = (input(f'Would you like to put {my_pet.get_name()} to sleep? y/n:'))
         if sleep == 'y':
-            my_pet.is_asleep()
+            my_pet.update_sleep(True)
+            print(f"Sssshhh.... let's not make too much noise, {my_pet.get_name()} is asleep")
+            time.sleep(2)
             redirect_to_home()
         elif sleep == 'n':
-            my_pet.is_not_asleep()
+            print(f"For now, {my_pet.get_name()} is still awake. Come back here if you change your mind")
+            time.sleep(2)
             redirect_to_home()
         else:
-            print('unsure of your option, please try again')
+            print('Unsure of your option, please try again')
             sleep_menu(redirect_to_home)
     else:
-        sleep = (input('would you like to wake your pet up? y/n:'))
-        if sleep == 'y':
-            my_pet.is_not_asleep()
+        wake = (input(f"Would you like to wake {my_pet.get_name()} up from their sleep? y/n:"))
+        if wake == 'y':
+            my_pet.update_sleep(False)
+            print(f"{my_pet.get_name()} is awake and happy to see you!")
+            time.sleep(2)
             redirect_to_home()
-        elif sleep == 'n':
-            my_pet.is_asleep()
+        elif wake == 'n':
+            print(f"Ssshhh.... {my_pet.get_name()} is still asleep")
+            time.sleep(2)
             redirect_to_home()
         else:
-            print('unsure of your option, please try again')
+            print('Unsure of your option, please try again')
             sleep_menu(redirect_to_home)
+
 
 
