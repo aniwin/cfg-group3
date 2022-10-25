@@ -30,6 +30,19 @@ def feed_pet(return_to_main):
 
     get_daily_hunger_score()
 
+    def replay():
+        try:
+            play_again = input(str("""Play again? y/n: """)).lower()
+            if play_again == "y":
+                feed_pet(return_to_main)
+            elif play_again == "n":
+                return_to_main()
+            else:
+                raise Exception()
+        except:
+            print("""Invalid input!""")
+            replay()
+
     print(f"""
     {my_pet.get_name()} has these foods available.
     Try and choose something {my_pet.get_name()} will like!: 
@@ -38,10 +51,24 @@ def feed_pet(return_to_main):
         list_all_foods = {**foods_i_like, **foods_i_dislike}
         return list_all_foods
 
+    # all_foods = merge(foods_i_like, foods_i_dislike)
+    # print(all_foods)
+    # chosen_food = input("""What do you want to feed me? Input number 1 - 10: """)
+    # chosen_food_int = int(chosen_food)
+
     all_foods = merge(foods_i_like, foods_i_dislike)
     print(all_foods)
-    chosen_food = input("""What do you want to feed me? Input number 1 - 10: """)
-    chosen_food_int = int(chosen_food)
+    while True:
+        try:
+            chosen_food = input("What do you want to feed me? Input number 1 - 10: ")
+            chosen_food_int = int(chosen_food)
+        except ValueError:
+            print("Oops! That wasn't a valid number. Try again.")
+        else:
+            if 1 <= chosen_food_int <= 10:
+                break
+            else:
+                print("Number out of range. Please try again")
 
     if chosen_food_int in foods_i_like.keys():
         print(f"""YUM YUM!...I like {(foods_i_like[chosen_food_int])}""")
@@ -70,13 +97,4 @@ def feed_pet(return_to_main):
                 print("""You fed me a food I don't like!""")
 
     get_daily_hunger_score()
-
-    play_again = input(str("""Play again? y/n: """)).lower()
-
-    if play_again == "y":
-        feed_pet(return_to_main)
-    elif play_again == "n":
-        return_to_main()
-    else:
-        print("""Invalid input!""")
-        feed_pet(return_to_main)
+    replay()
