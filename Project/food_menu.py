@@ -95,6 +95,8 @@ def feed_pet(return_to_main):
                     delete_score.truncate()
             elif occurrences == 0:
                 print("""You fed me a food I don't like!""")
-
-    get_daily_hunger_score()
+    try:
+        get_daily_hunger_score()
+    except(FileNotFoundError, PermissionError):
+        print("Stats not found")
     replay()

@@ -20,11 +20,6 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
 
     get_daily_weather_score()
 
-
-    apiKey
-
-    baseURL
-
     def play_again():
         try:
             replay = input(str("Play again? y/n: ")).lower()
@@ -41,13 +36,19 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
             play_again()
 
     # PART ONE OF GAME
-    print("I can help you with the weather!")
-    cityName = input("Tell me what city are you in?: ")
+    try:
+        apiKey
 
-    completeURL = baseURL + cityName + "&appid=" + apiKey # forms full URL based on user input
+        baseURL
+        print("I can help you with the weather!")
+        cityName = input("Tell me what city are you in?: ")
 
-    response = requests.get(completeURL) # response from endpoint
-    x = response.json()
+        completeURL = baseURL + cityName + "&appid=" + apiKey # forms full URL based on user input
+
+        response = requests.get(completeURL) # response from endpoint
+        x = response.json()
+    except requests.exceptions.ConnectionError as connecterr:
+        print("Error connecting:", connecterr)
 
     if x["cod"] != "404":
         z = x["weather"]
