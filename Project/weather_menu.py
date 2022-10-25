@@ -34,6 +34,20 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
     response = requests.get(completeURL) # response from endpoint
     x = response.json()
 
+    try:
+        apiKey = "1969ff8fbf12db1aa43981ac976e2c9b"  # api key for openweatherapi
+
+        baseURL = "https://api.openweathermap.org/data/2.5/weather?q="  # base URL for endpoint
+
+        print("I can help you with the weather!")
+        cityName = input("Tell me what city are you in?: ")
+        completeURL = baseURL + cityName + "&appid=" + apiKey # forms full URL based on user input
+
+        response = requests.get(completeURL) # response from endpoint
+        response.raise_for_status()
+    except requests.exceptions.ConnectionError as connecterr:
+        print("Error connecting:", connecterr)
+
     if x["cod"] != "404":
         z = x["weather"]
         weather_code = int(z[0]["id"]) # this saves the weather_code returned from the api to variable weather_code
