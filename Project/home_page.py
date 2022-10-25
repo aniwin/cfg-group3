@@ -17,7 +17,7 @@ def main_menu():
     name_of_game()
     time.sleep(1.5)
 
-    if my_pet.sleep == True:
+    if my_pet.get_sleep() == True:
         main_menu_choice = input(f"""
                 1: {my_pet.get_name()} is asleep and cannot play
                 2: {my_pet.get_name()} is asleep and discuss the weather
@@ -106,7 +106,7 @@ def main_menu():
             Please try again
             ''')
             main_menu()
-    elif my_pet.sleep != True:
+    elif my_pet.get_sleep() == False:
 
         main_menu_choice = input(f"""
                 1: Play a game of Rock, Paper, Scissors with {my_pet.get_name()}
