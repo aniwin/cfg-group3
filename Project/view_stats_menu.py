@@ -8,6 +8,29 @@ from home_page import *
 def stats_menu(redirect_to_home):
     available_levels
 
+    def stats_inner_menu():
+        try:
+            stats_menu_choice = input(f"""
+                    1: View {my_pet.get_name()}'s current stats
+                    2: Return to Main Menu
+
+
+            Please enter your choice: """)
+
+            if stats_menu_choice == "1":
+                print('This will reload the View Stats page')
+                time.sleep(3)
+                stats_menu(redirect_to_home)
+            elif stats_menu_choice == "2":
+                print('This will redirect to the Main Menu')
+                time.sleep(3)
+                redirect_to_home()
+            else:
+                raise Exception()
+        except:
+            print('Choose 1 or 2!')
+            stats_inner_menu()
+
     print(f"Let's check in with {(my_pet.get_name())} and see how they're doing!")
     time.sleep(2)
     overall_ascii()
@@ -54,22 +77,4 @@ def stats_menu(redirect_to_home):
             print(available_levels[(occurrences)])
             time.sleep(2)
 
-    stats_menu_choice = input(f"""
-            1: View {my_pet.get_name()}'s current stats
-            2: Return to Main Menu
-
-
-    Please enter your choice: """)
-
-    if stats_menu_choice == "1":
-        print('This will reload the View Stats page')
-        time.sleep(3)
-        stats_menu(redirect_to_home)
-    elif stats_menu_choice == "2":
-        print('This will redirect to the Main Menu')
-        time.sleep(3)
-        redirect_to_home()
-    else:
-        print('Unsure of your choice, you will be redirected to the Main Menu')
-        time.sleep(3)
-        redirect_to_home()
+    stats_inner_menu()

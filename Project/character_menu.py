@@ -1,4 +1,6 @@
 import random
+import time
+
 from home_page import *
 from pet_object import *
 
@@ -8,7 +10,7 @@ from datetime import datetime
 from home_page import *
 from pet_object import *
 
-#birthday decorator
+# birthday decorator
 def birthday(func):
     '''Log the time and date your pet was born'''
 
@@ -22,65 +24,66 @@ def birthday(func):
 @birthday
 def character_name():
 
-    pet_name = my_pet.update_name(input("What would you like to call your pet?:").title())
-    confirm = input("Are you sure you would like to call your pet {}? y/n:".format(my_pet.get_name()))
-    while confirm != 'y' and confirm != 'n':
-        confirm = input("""Not a valid input. 
-        Please press 'y' if you would like to name your pet {}, or 'n' if you would like to try a new name:
-        """.format(my_pet.get_name()).lower())
-    while confirm == 'n':
-        pet_name = my_pet.update_name(input("What would you like to call your pet?:"))
-        confirm = input("Are you sure you would like to call your pet {}? y/n:".format(my_pet.get_name()).lower())
-        while confirm != 'y' and confirm != 'n':
-            confirm = input("""Not a valid input. 
-            Please press 'y' if you would like to name your pet {}, or 'n' if you would like to try a new name:
-            """.format(pet_name).lower())
-    if confirm == 'y':
+    # pet_name = my_pet.update_name(input("What would you like to call your pet?:").title())
+    def random_gender():
+        gender_list = ["male", "female"]
+        pet_gender = my_pet.update_gender(random.choice(gender_list))
+        print(f"Congratulations, {my_pet.get_name()} is {my_pet.get_gender()}!")
+        time.sleep(1.5)
+        main_menu()
 
-        print(f"It's time to meet {(my_pet.get_name())}!")
+    def choose_gender():
+        try:
+            gender_choice = my_pet.update_gender(str(input(f"Would you like {my_pet.get_name()} to be male or female? male/female:")).lower())
 
-
-    pet_gender = "unknown"
-    gender_choose_or_random = input(f"""Would you like to choose your {my_pet.get_name()}'s gender or have it randomly assigned? 
-    Respond with 'choose' or 'random':
-    """)
-    while gender_choose_or_random != "choose" and gender_choose_or_random != "random":
-        print("Sorry that is not a valid input.")
-        gender_choose_or_random = input(f"""Would you like to choose your {my_pet.get_name()}'s gender or have it randomly assigned? 
-        Respond with 'choose' or 'random':
-        """)
-    if gender_choose_or_random == "choose":
-        while pet_gender != "male" and pet_gender != "female":
-            gender_choice = my_pet.update_gender(input(f"Would you like {my_pet.get_name()} to be male or female? m/f:"))
-            if gender_choice == "m":
-                pet_gender = "male"
-                print(f"Congratulations, {my_pet.get_name()} is male!")
-
+            if my_pet.get_gender() == "male":
+                print(f"Congratulations, {my_pet.get_name()} is {my_pet.get_gender()}!")
+                time.sleep(1.5)
                 main_menu()
-            elif gender_choice == "f":
-                pet_gender = "female"
-                print(f"Congratulations, {my_pet.get_name()} is female!")
+            elif my_pet.get_gender() == "female":
+                print(f"Congratulations, {my_pet.get_name()} is {my_pet.get_gender()}!")
+                time.sleep(1.5)
                 main_menu()
             else:
-                print("Sorry that gender isn't currently available, please select from the available options.")
-    elif gender_choose_or_random == "random":
-        gender_list = ["male", "female"]
-        pet_gender = (random.choice(gender_list))
-        if pet_gender == "male":
-            my_pet.update_gender(pet_gender)
-            print(f"Congratulations, {my_pet.get_name()} is male!")
+                raise Exception()
+        except:
+            print("Invalid input!")
+            choose_gender()
+    def decide_gender():
+        try:
+            gender_choose_or_random = input(f"""Would you like to choose your {my_pet.get_name()}'s gender or have it randomly assigned?
+            Respond with 'choose' or 'random':
+             """)
+            if gender_choose_or_random == "random":
+                random_gender()
+            elif gender_choose_or_random == "choose":
+                choose_gender()
+            else:
+                raise Exception()
+        except:
+            print("Invalid input!")
+            decide_gender()
+    def confirm_name():
+        try:
+            confirm = input("Are you sure you would like to call your pet {}? y/n:".format(my_pet.get_name()))
+            if confirm == "y":
+                print(f"It's time to meet {(my_pet.get_name())}!")
+                decide_gender()
+            elif confirm == "n":
+                character_name()
+            else:
+                raise Exception()
+        except:
+            print("Invalid input!")
+            confirm_name()
 
-            main_menu()
-        elif pet_gender == "female":
-            my_pet.update_gender(pet_gender)
-            print(f"Congratulations, {my_pet.get_name()} is female!")
+    my_pet.update_name(input("What would you like to call your pet?:").title())
 
-            main_menu()
-
-
-
-
-
+    if my_pet.get_name() == "":
+        print("Invalid input! You didn't give your pet a name!")
+        character_name()
+    else:
+        confirm_name()
 
 
 if __name__ == "__main__":
