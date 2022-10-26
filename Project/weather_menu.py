@@ -77,7 +77,7 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
             print(f"I don't have any advice for today!")
     else:
         print("City Not Found")
-        weather_advisor()
+        weather_advisor(redirect_to_main)
 
     # PART TWO OF THE GAME
     with open("daily_scores_weather_guess.csv", 'r') as file:
@@ -114,5 +114,4 @@ def weather_advisor(redirect_to_main): # depending on the weather code returned 
         else:
             print("City Not Found")
             play_again()
-
 
