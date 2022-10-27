@@ -9,16 +9,20 @@ import os
 from retrieve_daily_scores import *
 
 def get_user_guess():
-    guess = input(str("Enter rock👊(r)/paper✋(p)/scissors✌(s): ")).lower()
+    try:
+        guess = input(str("Enter rock👊(r)/paper✋(p)/scissors✌(s): ")).lower()
 
-    if guess == "r":
-        return "rock👊"
-    elif guess == "p":
-        return "paper✋"
-    elif guess == "s":
-        return "scissors✌"
-    else:
-        raise Exception()
+        if guess == "r":
+            return "rock👊"
+        elif guess == "p":
+            return "paper✋"
+        elif guess == "s":
+            return "scissors✌"
+        else:
+            raise Exception()
+    except:
+        print("Input must be r/p/s")
+        get_user_guess()
 
 def rock_paper_scissors(return_to_games_menu):
     # level = 0
@@ -128,8 +132,6 @@ def rock_paper_scissors(return_to_games_menu):
             who_played_what()
             pet_scored()
             current_score()
-
-
 
             if pet_score == score_limit:
                 pet_won_game()

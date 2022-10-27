@@ -2,6 +2,8 @@
 from opening_menu import *
 import time
 def create_score_records():
+    with open('date.csv', 'w') as file:
+        pass
     with open('daily_scores_rock_paper_scissors.csv', 'w') as file:
         pass
     with open('daily_scores_feed_pet.csv', 'w') as file:
