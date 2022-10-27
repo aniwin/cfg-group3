@@ -76,6 +76,7 @@ def weather_advisor(redirect_to_main):
             print("invalid input!")
             play_again()
 
+
     def game_part_two():
         try:
             guess_city_snowing = input(
