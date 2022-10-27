@@ -21,7 +21,7 @@ def birthday(func):
         print(f"{my_pet.get_name()} was born at {bday}")
     return wrapper
 
-@birthday
+# @birthday
 def character_name():
 
     # pet_name = my_pet.update_name(input("What would you like to call your pet?:").title())
