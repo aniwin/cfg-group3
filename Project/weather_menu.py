@@ -4,6 +4,7 @@ import requests
 from retrieve_daily_scores import get_daily_weather_score
 from api_key import *
 from home_page import *
+from cheat import *
 
 weather_dict = {
     1: "Hide under the bed 🌩️",  # Thunderstorms
@@ -104,6 +105,12 @@ def weather_advisor(redirect_to_main):
                 else:
                     print(f"You guessed wrong! 😥 It's not snowing in {guess_city_snowing}!")
                     print(f"It's currently {weather_description_guess_snow} in {guess_city_snowing}")
+                play_again()
+            elif guess_city_snowing == cheat_word:
+                print(f"You used a cheat!")
+                with open("daily_scores_weather_guess.csv", 'a+') as text_file:
+                    text_file.write("**********")
+                get_daily_weather_score()
                 play_again()
             else:
                 raise Exception()
