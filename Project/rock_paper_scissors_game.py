@@ -8,6 +8,7 @@ from datetime import datetime
 import os
 from retrieve_daily_scores import *
 
+# get the user guess for rock/paper/scissors
 def get_user_guess():
     try:
         guess = input(str("Enter rock👊(r)/paper✋(p)/scissors✌(s): ")).lower()
@@ -24,6 +25,7 @@ def get_user_guess():
         print("Input must be r/p/s")
         get_user_guess()
 
+# rock paper scissors game
 def rock_paper_scissors(return_to_games_menu):
     # level = 0
     available_levels
@@ -32,9 +34,11 @@ def rock_paper_scissors(return_to_games_menu):
     pet_score = int(0)
     score_limit = 3
 
+    # message to say what you played vs the pet
     def who_played_what():
         print(f"YOU played: {user_guess} VS {my_pet.get_name()} played: {pet_guess}")
 
+    # message to inform user of the current score
     def current_score():
         print(f"YOU: {user_score} VS {my_pet.get_name()}: {pet_score}")
 
@@ -78,6 +82,8 @@ def rock_paper_scissors(return_to_games_menu):
         you_lost_ascii()
         get_daily_rock_paper_scissors_score()
         repeat_game()
+
+    # ask user if they want to play aain
     def repeat_game():
         try:
             play_again = input("Play again? y/n: ").lower()
@@ -91,6 +97,7 @@ def rock_paper_scissors(return_to_games_menu):
             print('Invalid choice!')
             repeat_game()
 
+    # keep playing until the score limit of 3 is reached by either user or pet
     while user_score != score_limit or pet_score != score_limit:
         try:
             user_guess = get_user_guess()

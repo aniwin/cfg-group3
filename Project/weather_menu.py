@@ -97,6 +97,7 @@ def weather_advisor(redirect_to_main):
 
                 if weather_code_for_guess >= 600 and weather_code_for_guess <= 622:  # 600 or 601 or 602 or 611 or 612 or 613 or 615 or 616 or 620 or 621 or 622
                     print(f"You guessed correctly! It is snowing in {guess_city_snowing} ⛄")  # snow
+                    # add 10 stars to the weather guess CSV if the user guesses correctly
                     with open("daily_scores_weather_guess.csv", 'a+') as text_file:
                         text_file.write("**********")
                     get_daily_weather_score()
@@ -111,11 +112,13 @@ def weather_advisor(redirect_to_main):
             print("City Not Found")
             game_part_two()
 
+    # check to see if the weather guess CSV contains 10 stars already
     def check_if_snow_already_found_today():
         with open("daily_scores_weather_guess.csv", 'r') as file:
             data = file.read()
             occurrences = data.count("*")
 
+        # if 10 stars already, user cannot play guess snowing game again until tomorrow
         if occurrences == 10:
             print("You have already guessed where it is snowing today! Guess again tomorrow!")
             play_again()

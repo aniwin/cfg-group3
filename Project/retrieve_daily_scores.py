@@ -1,5 +1,6 @@
 from available_levels import *
 
+# open all the score CSV files and retrieve the current score
 def get_daily_weather_score():
     with open("daily_scores_weather_guess.csv", 'r') as file:
         data = file.read()

@@ -1,6 +1,8 @@
 import time
 from character_menu import *
 from ascii_art import *
+
+# opening menu
 def opening_menu():
     print('Loading...')
     time.sleep(2)
