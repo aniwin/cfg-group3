@@ -2,7 +2,7 @@ import time
 
 from pet_object import *
 
-
+# allow the user to put the pet to sleep
 def sleep_menu(redirect_to_home):   # avoiding a circular import error
     if not my_pet.get_sleep():
         sleep = (input(f'Would you like to put {my_pet.get_name()} to sleep? y/n:'))
@@ -18,6 +18,7 @@ def sleep_menu(redirect_to_home):   # avoiding a circular import error
         else:
             print('Unsure of your option, please try again')
             sleep_menu(redirect_to_home)
+# allow the user to wake their pet from sleep
     else:
         wake = (input(f"Would you like to wake {my_pet.get_name()} up from their sleep? y/n:"))
         if wake == 'y':

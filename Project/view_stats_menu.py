@@ -35,6 +35,7 @@ def stats_menu(redirect_to_home):
     time.sleep(2)
     overall_ascii()
 
+    # calculate the average from feed pet, rock paper scissors, and weather guess scores to give an overall
     with open("daily_scores_feed_pet.csv", 'r') as file:
         data = file.read()
         hunger = data.count("*")

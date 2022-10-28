@@ -23,8 +23,7 @@ def birthday(func):
 
 # @birthday
 def character_name():
-
-    # pet_name = my_pet.update_name(input("What would you like to call your pet?:").title())
+    # using random for the computer to randomly choose a gender
     def random_gender():
         gender_list = ["male", "female"]
         pet_gender = my_pet.update_gender(random.choice(gender_list))
@@ -32,6 +31,7 @@ def character_name():
         time.sleep(1.5)
         main_menu()
 
+    # for the user to choose a gender
     def choose_gender():
         try:
             gender_choice = my_pet.update_gender(str(input(f"Would you like {my_pet.get_name()} to be male or female? male/female:")).lower())
@@ -49,6 +49,8 @@ def character_name():
         except:
             print("Invalid input!")
             choose_gender()
+
+    # asking the user if they want to choose the gender or randomly have a gender assigned
     def decide_gender():
         try:
             gender_choose_or_random = input(f"""Would you like to choose your {my_pet.get_name()}'s gender or have it randomly assigned?
@@ -63,6 +65,8 @@ def character_name():
         except:
             print("Invalid input!")
             decide_gender()
+
+    # confirm that the user wishes to call their pet a certain name
     def confirm_name():
         try:
             confirm = input("Are you sure you would like to call your pet {}? y/n:".format(my_pet.get_name()))
@@ -77,6 +81,7 @@ def character_name():
             print("Invalid input!")
             confirm_name()
 
+    # updates the my_pet object with the pet name
     my_pet.update_name(input("What would you like to call your pet?:").title())
 
     if my_pet.get_name() == "":

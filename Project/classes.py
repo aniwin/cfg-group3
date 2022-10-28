@@ -1,3 +1,4 @@
+# defining our Pet class, with it's attributes and methods
 class Pet:
     def __init__(self, name, gender, sleep):
         self.name = name

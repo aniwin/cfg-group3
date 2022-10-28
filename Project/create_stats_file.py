@@ -1,4 +1,4 @@
-
+# this file generates 4 empty CSV files that will be need in order to store our game scores
 from opening_menu import *
 import time
 def create_score_records():

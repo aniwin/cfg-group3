@@ -1,3 +1,4 @@
+# available levels to be used with rock paper scissors, feed pet and weather game
 available_levels = {
     0: "□ □ □ □ □ □ □ □ □ □",
     1: "■ □ □ □ □ □ □ □ □ □",
