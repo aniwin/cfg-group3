@@ -53,9 +53,8 @@ def character_name():
     # asking the user if they want to choose the gender or randomly have a gender assigned
     def decide_gender():
         try:
-            gender_choose_or_random = input(f"""Would you like to choose your {my_pet.get_name()}'s gender or have it randomly assigned?
-            Respond with 'choose' or 'random':
-             """)
+            gender_choose_or_random = input(f"Would you like to choose your {my_pet.get_name()}'s gender or have it randomly assigned?"
+                                            f"Respond with 'choose' or 'random':")
             if gender_choose_or_random == "random":
                 random_gender()
             elif gender_choose_or_random == "choose":
