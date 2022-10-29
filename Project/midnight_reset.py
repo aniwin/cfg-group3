@@ -16,3 +16,5 @@ def midnight_reset():
                 pass
             with open("daily_scores_feed_pet.csv", 'w+') as text_file:
                 pass
+            with open("daily_scores.csv", 'w+') as text_file:
+                pass

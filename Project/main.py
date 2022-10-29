@@ -1,6 +1,7 @@
 from opening_menu import *
 import subprocess
 import sys
+from sql_username_password import *
 
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
@@ -13,6 +14,9 @@ def run(runfile):
         exec(rnf.read())
 
 run("create_stats_file.py")
+
+def get_sql_creds():
+    sql_credentials()
 
 
 if __name__ == "__main__":
