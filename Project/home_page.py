@@ -10,6 +10,7 @@ from sleep_function import *
 from ascii_text import *
 from decorator import *
 from closing_scores import *
+from mysql_save_file import *
 
 # message to user that pet cannot perform their chosen task while it is sleeping
 def cant_do_whilst_sleeping():
@@ -51,6 +52,7 @@ def end_game_final():
                        ''')
             time.sleep(1)
             closing_scores()
+            insert_new_record(save_data)
             return thanks_for_playing()
         elif end_game == "2":
             main_menu()
