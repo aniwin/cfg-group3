@@ -5,7 +5,8 @@ from config import USER, PASSWORD, HOST
 from pet_object import *
 import pathlib
 import csv
-
+import sys
+import os
 
 csv_path1 = pathlib.Path.cwd() / "date.csv"
 csv_path2 = pathlib.Path.cwd() / "daily_scores.csv"
@@ -66,7 +67,8 @@ def insert_new_record(save_data):
     print("DB connection is closed")
 
     print("Record added to DB")
-
+    print(f"Thanks for playing with {(my_pet.get_name())}")
+    os._exit(0)
 
 def main():
     insert_new_record(save_data)
