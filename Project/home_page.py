@@ -52,7 +52,7 @@ def end_game_final():
                        ''')
             time.sleep(1)
             closing_scores()
-            insert_new_record(save_data)
+
 
         elif end_game == "2":
             main_menu()

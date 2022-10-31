@@ -1,5 +1,5 @@
 import csv
-
+from mysql_save_file import *
 def closing_scores():
 
     with open("daily_scores_weather_guess.csv", 'r') as file:
@@ -19,3 +19,4 @@ def closing_scores():
         writer = csv.writer(file)
         writer.writerow(data)
 
+    insert_new_record(save_data)
