@@ -22,12 +22,12 @@ def cant_do_whilst_sleeping():
     main_menu()
 
 # # exit the game completely
-# def exit_final():
-#     print(f"Thanks for playing with {(my_pet.get_name())}")
-#     os._exit(0)
-#
-# def thanks_for_playing():
-#     return exit_final()
+def exit_final():
+    print(f"Thanks for playing with {(my_pet.get_name())}")
+    os._exit(0)
+
+def thanks_for_playing():
+    return exit_final()
 
 # confirm whether the user wants to end the game
 def end_game_final():
@@ -53,7 +53,7 @@ def end_game_final():
             time.sleep(1)
             closing_scores()
             insert_new_record(save_data)
-            # return thanks_for_playing()
+            return thanks_for_playing()
 
         elif end_game == "2":
             main_menu()
