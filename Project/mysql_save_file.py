@@ -51,6 +51,7 @@ with csv_path2.open(mode="r") as csv_reader2:
 
 
 def insert_new_record(save_data):
+    global db_connection
     try:
         db_name = 'pet_database'
         db_connection = _connect_to_db(db_name)
@@ -67,20 +68,16 @@ def insert_new_record(save_data):
         cur.execute(query)
         db_connection.commit()  # VERY IMPORTANT, otherwise, rows would not be added or reflected in the DB!
         cur.close()
-        db_connection.close()
-        print("DB connection is closed")
 
-        print("Record added to DB")
-        return thanks_for_playing()
 
     except Exception:
         raise DbConnectionError("Failed to read data from DB")
-
-    db_connection.close()
-    print("DB connection is closed")
-
-    print("Record added to DB")
-    return thanks_for_playing()
+    finally:
+        if db_connection:
+            db_connection.close()
+            print("DB connection is closed")
+        print("Record added to DB")
+        return thanks_for_playing()
 
 def main():
     insert_new_record(save_data)
