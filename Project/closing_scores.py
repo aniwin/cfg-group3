@@ -18,3 +18,4 @@ def closing_scores():
     with open("daily_scores.csv", "w+") as file:
         writer = csv.writer(file)
         writer.writerow(data)
+
