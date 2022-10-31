@@ -76,7 +76,11 @@ def insert_new_record(save_data):
     except Exception:
         raise DbConnectionError("Failed to read data from DB")
 
+    db_connection.close()
+    print("DB connection is closed")
 
+    print("Record added to DB")
+    return thanks_for_playing()
 
 def main():
     insert_new_record(save_data)
