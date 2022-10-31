@@ -3,12 +3,22 @@
 
 # **DUMPLING**
 
+## Requirements
+**Dumpling** has a few requirements in order to play the game. These can be found in the requirements.txt. Upon
+running main.py these requirements will automatically be installed, or alternatively the user can install the manually 
+with the following commands:
+
+pip install requests
+
+pip install mysql_connector_python
+
+
 ## Game overview
 
-**Dumpling** is a virtual pet simulation game. Players of our game will need to look after the pet by being able to 
-feed, play and put their pet in sleep/awake modes. Within the game we have added a features that allows us also to play 
-with our virtual pet such as rock, paper, scissors, and getting weather advice from our pet with a mini-game feature of 
-guessing a city in the world where it is currently snowing.
+**Dumpling** is a command line virtual pet simulation game. Players of our game will need to look after the pet by being
+able to feed, play and put their pet in sleep/awake modes. Within the game we have added a features that allows us also 
+to play with our virtual pet such as rock, paper, scissors, and getting weather advice from our pet with a mini-game 
+feature of guessing a city in the world where it is currently snowing.
 
 ## Planning Stage
 
