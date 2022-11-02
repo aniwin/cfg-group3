@@ -60,7 +60,7 @@ def end_game_final():
             raise Exception()
     except:
         print("You need to select 1 or 2!")
-        end_game_final()
+
 
 # menu choices for when the pet is asleep
 def main_menu_asleep():
@@ -106,7 +106,7 @@ def main_menu_asleep():
             raise Exception()
     except:
         print("Invalid input!")
-        main_menu_asleep()
+
 
 # menu choices for when the pet is awake
 def main_menu_awake():
@@ -163,7 +163,7 @@ def main_menu_awake():
             raise Exception()
     except:
         print("Invalid input!")
-        main_menu_awake()
+
 
 # main program
 def main_menu():
