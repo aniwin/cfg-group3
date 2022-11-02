@@ -47,6 +47,7 @@ with csv_path2.open(mode="r") as csv_reader2:
     csv_reader2 = csv.reader(csv_reader2, delimiter=',')
     for rows in csv_reader2:
         save_data.update({'weather_score':rows[0], 'feed_pet_score':rows[1], 'rock_paper_scissors_score':rows[2]})
+        break
 
 
 
