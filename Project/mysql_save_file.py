@@ -2,7 +2,6 @@
 
 import mysql.connector
 from config import USER, PASSWORD, HOST
-from pet_object import *
 import pathlib
 import csv
 import sys

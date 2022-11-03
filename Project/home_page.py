@@ -10,7 +10,6 @@ from sleep_function import *
 from ascii_text import *
 from decorator import *
 from closing_scores import *
-from mysql_save_file import *
 
 # message to user that pet cannot perform their chosen task while it is sleeping
 def cant_do_whilst_sleeping():

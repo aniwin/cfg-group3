@@ -1,5 +1,8 @@
 import csv
-from mysql_save_file import *
+from pet_object import *
+import os
+import sys
+
 def closing_scores():
 
     with open("daily_scores_weather_guess.csv", 'r') as file:
