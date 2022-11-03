@@ -62,15 +62,13 @@ def insert_new_record(save_data):
         cur.execute(query)
         db_connection.commit()  # VERY IMPORTANT, otherwise, rows would not be added or reflected in the DB!
         cur.close()
-
+        db_connection.close()
+        print("DB connection is closed")
+        print("Record added to DB")
 
     except Exception:
         raise DbConnectionError("Failed to read data from DB")
-    finally:
-        if db_connection:
-            db_connection.close()
-            print("DB connection is closed")
-        print("Record added to DB")
+
 
 
 
