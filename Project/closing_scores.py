@@ -19,4 +19,10 @@ def closing_scores():
         writer = csv.writer(file)
         writer.writerow(data)
 
-    insert_new_record(save_data)
+    return thanks_for_playing()
+def exit_final():
+    print(f"Thanks for playing with {(my_pet.get_name())}")
+    os._exit(0)
+
+def thanks_for_playing():
+    return exit_final()

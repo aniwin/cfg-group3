@@ -21,13 +21,6 @@ def cant_do_whilst_sleeping():
     time.sleep(3)
     main_menu()
 
-# # exit the game completely
-def exit_final():
-    print(f"Thanks for playing with {(my_pet.get_name())}")
-    os._exit(0)
-
-def thanks_for_playing():
-    return exit_final()
 
 # confirm whether the user wants to end the game
 def end_game_final():
@@ -39,6 +32,9 @@ def end_game_final():
                    Please enter your choice:
                    ''')
         if end_game == "1":
+            print("All save data will be reset the next time you play Dumpling")
+            print("If you would like to save your current scores to the leaderboard, please run our mysql_save_file.py "
+                  "file before starting a new game.")
             print('''
                        Exiting Game in 3
                        ''')
@@ -60,7 +56,7 @@ def end_game_final():
             raise Exception()
     except:
         print("You need to select 1 or 2!")
-
+        end_game_final()
 
 # menu choices for when the pet is asleep
 def main_menu_asleep():
@@ -106,7 +102,7 @@ def main_menu_asleep():
             raise Exception()
     except:
         print("Invalid input!")
-
+        main_menu_asleep()
 
 # menu choices for when the pet is awake
 def main_menu_awake():
@@ -163,7 +159,7 @@ def main_menu_awake():
             raise Exception()
     except:
         print("Invalid input!")
-
+        main_menu_awake()
 
 # main program
 def main_menu():

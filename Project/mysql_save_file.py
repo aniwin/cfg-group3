@@ -11,12 +11,6 @@ import os
 csv_path1 = pathlib.Path.cwd() / "date.csv"
 csv_path2 = pathlib.Path.cwd() / "daily_scores.csv"
 
-def exit_final():
-    print(f"Thanks for playing with {(my_pet.get_name())}")
-    os._exit(0)
-
-def thanks_for_playing():
-    return exit_final()
 
 
 
@@ -78,11 +72,9 @@ def insert_new_record(save_data):
             db_connection.close()
             print("DB connection is closed")
         print("Record added to DB")
-        return thanks_for_playing()
-
-def main():
-    insert_new_record(save_data)
 
 
-if __name__ == '__main__':
-    main()
+
+insert_new_record(save_data)
+
+
