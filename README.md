@@ -8,7 +8,8 @@
 # **DUMPLING**
 
 ## Documentation
-Link to Documentation
+[Google Docs Project Documentation](https://docs.google.com/document/d/19PQTlbGiiLJDK4s6xPhei9JLyAA0_1XDn6I9dvttbDI/edit)
+
 
 # **About The Project** 
 
